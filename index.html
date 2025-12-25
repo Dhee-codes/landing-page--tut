@@ -8,13 +8,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
+    <script src="scripts/script.js" defer></script>
 </head>
 <body>
     <header class="header">
         <div class="logo">
             <h1>My Awesome Website</h1>
         </div>
-        <nav class="navbar">
+        <button class="menu-icon" aria-controls="navbar" aria-expanded="false" aria-label="menu icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list active" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+            </svg>
+        </button>
+        <nav id="navber" class="navbar closed" data-visible="false">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -29,9 +38,9 @@
             <div class="hero">
                 <h2>This website is awesome!</h2>
                 <p>Welcome to our awesome website where you can find a variety of tutorials and resources to enhance your skills.</p>
-                <button>Sign Up</button>
+                <button class="btn">Sign Up</button>
             </div>
-            <div class="hero img">
+            <div class="hero-img">
                 <img src="images/hero-img.webp" alt="Hero Image">
             </div>
         </section>
@@ -85,7 +94,7 @@
                     <p>Ready to take your skills to the next level? Join our community today!</p>
                 </div>
                 <div>
-                    <button>Contact Us</button>
+                    <button class="btn">Contact Us</button>
                 </div>
             </div>
         </section> 

@@ -4,13 +4,23 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Roboto", sans-serif;
 }
 
 .header {
-    background-color: #1f2937;
-    padding: 1rem 10rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(31, 41, 55, 0.9);
+    backdrop-filter: blur(10px);
+    --webkit-backdrop-filter: blur(10px);
+    padding: 1rem min(10rem, 11.7vw);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,14 +28,72 @@ body {
 
 h1 {
     color: #f9faf8;
-    font-size: 1.5rem;
+    font-size: clamp(0.8rem, calc(0.6vw + 1rem), 3.6rem);
 }
 
 ul {
     list-style: none;
-    padding: 0;
     display: flex;
     gap: 1rem;
+}
+
+.menu-icon {
+    display: none;
+}
+
+@media (max-width: 769px) {
+    .navbar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: min(70%, 400px);
+        text-align: center;
+        z-index: 100;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .navbar.closed {
+        transform: translateX(100%);
+    }
+
+    .navbar.open {
+        transform: translateX(0);
+    }
+
+    ul {
+        height: 100dvh;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 2.6rem;
+        padding-top: min(10rem, 15vh);
+        background-color: rgba(22, 29, 39, 0.7);
+        backdrop-filter: blur(10px);
+        --webkit-backdrop-filter: blur(10px);
+    }
+
+    .menu-icon {
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+        background-color: transparent;
+        border: none;
+        display: flex;
+        z-index: 9999;
+    }
+
+    .bi {
+        color: white;
+        cursor: pointer;
+    }
+
+    .bi-list, .bi-x-lg {
+        display: none;
+    }
+
+    .bi-list.active, .bi-x-lg.active {
+        display: block;
+    }
 }
 
 li a:any-link {
@@ -44,58 +112,78 @@ li :is(a:hover, a:focus-visible) {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 8rem;
+    padding: 2rem min(8rem, 6vw);
 }
 
-.hero {
-    flex: 1;
+.hero, .hero-img {
     padding: 2rem;
 }
 
-.hero img {
+.hero-img {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-img img {
     max-width: 100%;
     height: auto;
 }
 
 .hero h2 {
     color: #f9faf8;
-    font-size: 3rem;
+    font-size: clamp(1.8rem, calc(2.35vw + 1rem), 5rem);
     font-weight: 900;
     margin-bottom: 1rem;
 }
 
 .hero p {
     color: #e5e5e5;
-    font-size: 1.125rem;
+    font-size: clamp(0.8rem, calc(0.15vw + 1rem), 3rem);
     line-height: 1.5;
     margin-bottom: 1rem;
 }
 
-button {
+.btn {
     background-color: #3b82f6;
     color: #ffffff;
     border: none;
     padding: 0.6rem 2rem;
     border-radius: 0.5rem;
-    font-size: 1rem;
+    font-size: clamp(0.1rem, calc(0.1vw + 0.92rem), 2.4rem);
     font-weight: 600;
+    white-space: nowrap;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
+.btn:hover {
     background-color: hsl(217, 91%, 39%);
+}
+
+@media (max-width: 769px) {
+    .hero-section {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 2rem;
+        padding: 2rem;
+        padding: 2rem 0;
+    }
+
+    .hero h2 {
+        font-size: clamp(1rem, calc(8.8vw + 0.92rem), 4rem);
+    }
 }
 
 .about-section {
     background-color: #f3f4f6;
     text-align: center;
-    padding: 3rem 8rem;
+    padding: min(3rem, 3.5vw) min(8rem, 9.37vw);
 }
 
 .about-section h2 {
     color: #1f2937;
-    font-size: 2.25rem;
+    font-size: clamp(1.4rem, calc(1.5vw + 1rem), 4rem);
     font-weight: 900;
 }
 
@@ -112,7 +200,7 @@ button:hover {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 12.5rem;
+    width: min(12.6rem, 40vw);
 }
 
 .profile-img {
@@ -133,11 +221,11 @@ button:hover {
 .quote {
     color: #1f2937;
     background-color: #e5e5e5;
-    padding: 6rem 16rem;
+    padding: 6rem min(16rem, 18.7vw);
 }
 
 .quote p {
-    font-size: 2.25rem;
+    font-size: clamp(1.4rem, calc(1.5vw + 1rem), 4rem);
     font-style: italic;
     font-weight: 300;
 }
@@ -145,39 +233,56 @@ button:hover {
 .quote cite {
     display: block;
     margin-top: 1rem;
-    font-size: 1.5rem;
+    font-size: clamp(0.8rem, calc(0.6vw + 1rem), 3.6rem);
     font-weight: 700;
     text-align: right;
 }
 
 .cta {
     width: 75%;
+    max-width: 1600px;
     color: #e5e5e5;
     background-color: #3b82f6;
     border-radius: 10px;
     margin: 6.25rem auto;
-    padding: 3rem 7rem;
+    padding: 3rem min(7rem, 8.19vw);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .cta h2 {
-    font-size: 1.5rem;
+    font-size: clamp(0.8rem, calc(0.6vw + 1rem), 3.6rem);
     font-weight: 900;
     margin-bottom: 0.5rem;
 }
 
 .cta p {
-    font-size: 1rem;
+    font-size: clamp(0.1rem, calc(0.1vw + 0.92rem), 2.4rem);
     font-weight: 400;
+    margin-right: 3rem;
 }
 
 .cta button {
-    font-size: 0.75rem;
+    font-size: clamp(0.1rem, calc(0.42vw + 0.4rem), 1rem);
     font-weight: 600;
     border: 2.5px solid #e5e5e5;
     cursor: pointer;
+}
+
+.cta button :is(button:hover, button:focus) {
+    background-color: hsl(217, 91%, 39%);
+}
+
+@media (max-width: 578px) {
+    .cta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cta button {
+        margin-top: 2rem;
+    }
 }
 
 footer {
