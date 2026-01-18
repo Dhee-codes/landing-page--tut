@@ -5,10 +5,15 @@ A responsive landing page built as part of The Odin Project (TOP) curriculum. im
 ## Overview
 
 This project focuses on building a modern landing page layout using core web technologies. Implementation emphasized layout and styling fundamentals. Improvement enhances usability and accessibility on smaller screens.
+## Demo
 
-## Live Preview
+### Screenshot
 
-[Github Pages](https://divine-obiorah.github.io/landing-page--the-odin-project/)
+![Priview](images/screenshot.png)
+
+### Live Preview
+
+[Github Pages](https://Dhee-codes.github.io/landing-page--tut/)
 
 ## Features
 
@@ -38,15 +43,14 @@ landing-page--the-odin-project/
 └─ README.md
 ```
 
+## Acknowledgements
+
+The Odin Project
+
 ## Author
 
-***Divine E. Obiorah***
-Github Repository: [divine-obiorah](https://github.com/divine-obiorah/landing-page--the-odin-project.git)
+***Dhee-codes***
 
 ## License
 
-This project is open-source and available under the MIT License.
-
-## Acknowledgements
-
-The Odin Project for the curriculum and project guidance
+MIT License.
